@@ -1,0 +1,121 @@
+/* Estilo general */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #f6d365, #fda085);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+main {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #ffffffcc; /* ligeramente transparente */
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+/* Títulos */
+h1 {
+  color: #ff6f61;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+  color: #34495e;
+  margin-top: 20px;
+  border-bottom: 2px solid #ff6f61;
+  padding-bottom: 5px;
+}
+
+h3 {
+  color: #16a085;
+  margin-top: 30px;
+  text-decoration: underline;
+}
+
+/* Párrafos */
+p {
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Listas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+ul li {
+  padding: 5px 0;
+  font-weight: 500;
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+  background: linear-gradient(90deg, #16a085, #1abc9c);
+  color: #fff;
+}
+
+thead th {
+  padding: 15px;
+  font-size: 1em;
+}
+
+tbody tr {
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+tbody tr:hover {
+  transform: scale(1.02);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+tbody td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Colores para calificación */
+.apto {
+  font-weight: bold;
+  color: #27ae60;
+}
+
+.apto.no-apto {
+  color: #c0392b;
+}
+
+/* Botón llamativo (opcional si lo usas después) */
+button {
+  background: linear-gradient(90deg, #ff6f61, #ff9472);
+  border: none;
+  padding: 12px 25px;
+  color: white;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: linear-gradient(90deg, #ff9472, #ff6f61);
+}
