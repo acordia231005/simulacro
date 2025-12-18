@@ -1,43 +1,68 @@
 <main>
   <div>
-      <h1>Hola, {{ title() }}</h1>
-      <!-- Quitamos el boton para hacer que cargue la info al inicio-->
-      <!--<button (click)="iniciar_app()"> Iniciar APP </button>-->
+    <h1>Hola, {{ title() }}</h1>
+    <!-- Quitamos el boton para hacer que cargue la info al inicio-->
+    <!--<button (click)="iniciar_app()"> Iniciar APP </button>-->
 
-      <div>
-        @if(!empresa){
-          <p>No existen datos</p>
-        }@else{
-          <h2>{{empresa.nombre}}</h2>
-          <ul>
-            <li>CIF: {{empresa.cif}}</li>
-            <li>Direccion: {{empresa.direccion}}</li>
-          </ul>
+    <div>
+      @if(!empresa){
+      <p>No existen datos</p>
+      }@else{
+      <h2>{{empresa.nombre}}</h2>
+      <ul>
+        <li>CIF: {{empresa.cif}}</li>
+        <li>Direccion: {{empresa.direccion}}</li>
+      </ul>
 
-          <h3>Listado Prácticas</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Alumno</th>
-                <th>Fecha Inicio</th>
-                <th>Fecha Fin</th>
-                <th>Calificación</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for(fct of empresa.fcts; track fct){
-                @for(alumno of fct.alumnos; track alumno){
-                  <tr>
-                    <td>{{alumno.nombre}}</td>
-                    <td>{{fct.fecha_inicio | date: "dd/MM/yyyy"}}</td>
-                    <td>{{fct.fecha_fin | date: "dd/MM/yyyy"}}</td>
-                    <td class="apto">{{fct.apto? "APTO":"NO APTO"}}</td>
-                  </tr>
-                }
-              }
-            </tbody>
-          </table>
-        }
-      </div>
+      <h3>Listado Prácticas</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Alumno</th>
+            <th>Fecha Inicio</th>
+            <th>Fecha Fin</th>
+            <th>Calificación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(fct of empresa.fcts; track fct){
+          @for(alumno of fct.alumnos; track alumno){
+          <tr>
+            <td>{{alumno.nombre}}</td>
+            <td>{{fct.fecha_inicio | date: "dd/MM/yyyy"}}</td>
+            <td>{{fct.fecha_fin | date: "dd/MM/yyyy"}}</td>
+            <td class="apto">{{fct.apto? "APTO":"NO APTO"}}</td>
+            <td> <button (click)="eliminar(alumno)" style="color:red">X</button> </td>
+          </tr>
+          }
+          }
+        </tbody>
+      </table>
+      }
     </div>
+    <form>
+      <label>
+        Nombre alumno:
+        <input name="nombre" type="text" [(ngModel)]="nombre" />
+      </label>
+
+      <label>
+        Fecha inicio:
+        <input name="fecha_inicio" type="date" [(ngModel)]="fecha_inicio" />
+      </label>
+
+      <label>
+        Fecha fin:
+        <input name="fecha_fin" type="date" [(ngModel)]="fecha_fin" />
+      </label>
+
+      <label class="checkbox-label">
+        <input name="apto" type="checkbox" [(ngModel)]="apto" />
+        Apto
+      </label>
+
+      <button type="button" (click)="nueva_practica()">Nueva práctica</button>
+    </form>
+  </div>
 </main>
